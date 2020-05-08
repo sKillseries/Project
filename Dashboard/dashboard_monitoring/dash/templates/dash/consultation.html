@@ -1,0 +1,3 @@
+<h1>{{ vulnerabilite.nom }} <span class="small">dans {{ vulnerabilite.categorie.nom }}</span></h1>
+<p class="infos">Source: {{ vulnerabilite.source }}, paru le {{ vulnerabilite.date|date:"DATE_FORMAT" }}</p>
+<div class="contenu">{{ vulnerabilite.contenu|linebreaks }}</div>

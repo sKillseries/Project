@@ -1,0 +1,26 @@
+<h1>CyberSecurity Section</h1>
+<p>Bonjour {{pseudo}} nous sommes le : {{date}}</p>
+<a href="{% url 'accueil' %}">Accueil</a>
+<!-- Section vulnerabilité-->
+{% for vulnerabilite in dernieres_vulnerabilites %}
+    <div class="vulnerabilite">
+        <h3>{{ vulnerabilite.nom }}</h3>
+        <p>{{ vulnerabilite.source }}</p>
+        <p>{{ vulnerabilite.contenu|truncatewords_html:80 }}</p>
+        <p><a href="{% url 'consultation' id=vulnerabilite.id slug=vulnerabilite.slug %}">Lire la suite</a></p>
+    </div>
+{% empty %}
+    <p>Aucune vulnerabilite.</p>
+{% endfor %}
+
+<!-- Section actualité-->
+{% for actualite in dernieres_actualites %}
+    <div class="actualite">
+        <h3>{{ actualite.titre }}</h3>
+        <p>{{ actualite.source }}</p>
+        <p>{{ actualite.contenu|truncatewords_html:80 }}</p>
+        <p><a href="{% url 'lire' id=actualite.id slug=actualite.slug %}">Lire la suite</a></p>
+    </div>
+{% empty %}
+    <p>Aucune actualite.</p>
+{% endfor %}

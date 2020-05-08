@@ -1,0 +1,3 @@
+<h1>{{ actualite.titre }} <span class="small">dans {{ actualite.categorie.nom }}</span></h1>
+<p class="infos">Source{{ actualite.source }}, le {{ actualite.date|date:"DATE_FORMAT" }}</p>
+<div class="contenu">{{ actualite.contenu|linebreaks }}</div>
